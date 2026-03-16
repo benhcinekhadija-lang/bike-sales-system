@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion du Stock de Motos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🏍 Système de Gestion du Stock de Motos</h1>
+
+  <!-- Formulaire d'ajout de moto -->
+  <section class="form-section">
+    <h2>➕ Ajouter une nouvelle moto</h2>
+    <form id="bikeForm">
+      <input type="text" id="bikeName" placeholder="Nom de la moto" required>
+      <input type="text" id="bikeType" placeholder="Type de moto" required>
+      <input type="text" id="bikeFrame" placeholder="Numéro de châssis" required>
+      <input type="number" id="bikePrice" placeholder="Prix d'achat" required>
+      <input type="number" id="bikeQuantity" placeholder="Quantité" required>
+      <button type="submit">Ajouter</button>
+    </form>
+  </section>
+RTY
+  <!-- Recherche -->
+  <section class="search-section">
+    <input type="text" id="searchInput" placeholder="🔍 Rechercher par nom, type ou châssis...">
+  </section>
+
+  <!-- Tableau des motos -->
+  <section class="table-section">
+    <h2>📋 Liste des motos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Type</th>
+          <th>Châssis</th>
+          <th>Prix d'achat</th>
+          <th>Quantité</th>
+          <th>Alerte</th>
+          <th>📌</th>
+        </tr>
+      </thead>
+      <tbody id="bikeTableBody"></tbody>
+    </table>
+  </section>
+
+  <!-- Formulaire de vente -->
+  <section class="form-section">
+    <h2>💵 Enregistrer une vente</h2>
+    <form id="saleForm">
+      <input type="text" id="customerName" placeholder="Nom du client" required>
+      <input type="tel" id="customerPhone" placeholder="Téléphone du client" required>
+      <select id="bikeSelect" required>
+        <option value="">Choisir une moto</option>
+      </select>
+      <input type="date" id="saleDate" required>
+      <input type="number" id="salePrice" placeholder="Prix de vente" required>
+      <button type="submit">Enregistrer</button>
+    </form>
+  </section>
+
+  <!-- Tableau des ventes -->
+  <section class="table-section">
+    <h2>📊 Historique des ventes</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Client</th>
+          <th>Téléphone</th>
+          <th>Moto</th>
+          <th>Type</th>
+          <th>Châssis</th>
+          <th>Prix d'achat</th>
+          <th>Prix de vente</th>
+          <th>📌</th>
+        </tr>
+      </thead>
+      <tbody id="salesTableBody"></tbody>
+    </table>
+    <button onclick="exportSalesToExcel()">📤 Exporter les ventes</button>
+    <button onclick="window.print()">🖨 Imprimer</button>
+  </section>
+
+  <!-- Revenus journaliers -->
+  <section class="table-section">
+    <h2>📅 Revenus journaliers</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Total des ventes (MAD)</th>
+        </tr>
+      </thead>
+      <tbody id="incomeTableBody"></tbody>
+    </table>
+    <button onclick="exportIncomeToExcel()">📤 Exporter les revenus</button>
+    <button onclick="window.print()">🖨 Imprimer</button>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
